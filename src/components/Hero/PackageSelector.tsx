@@ -1,16 +1,16 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import PlanLabel from "./PlanLabel"
 import { useAppSelector } from "../../redux/store";
-import {delay, motion} from 'framer-motion'
+import {motion} from 'framer-motion'
 
 const PackageSelector = () => {
 
     const {plan} = useAppSelector(state => state);
 
-    let plan_price = parseInt(plan.permonth.split('').filter((item) => item !== '₹' && item !== ' ').join(''));
+    const plan_price = parseInt(plan.permonth.split('').filter((item) => item !== '₹' && item !== ' ').join(''));
 
     // 99 is dicounted price + 17 is 18% GST for 99 + plan_price is the monthly price of the plan
-    let discounted_price = (99 + 17 + plan_price);
+    const discounted_price = (99 + 17 + plan_price);
 
   return (
     <motion.div
